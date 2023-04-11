@@ -8,6 +8,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
 
 import edu.uoc.dpcs.lsim.logger.LoggerManager.Level;
 import lsim.library.api.LSimLogger;
@@ -43,6 +44,7 @@ public class RestServerAPI {
 		double result = Integer.MIN_VALUE;
 
 		/* COMPLETE CODE */
+		result = 2 * Math.PI * rad * (rad + alt) * ang / 360 + 2 * rad * alt;
 
 		LSimLogger.log(Level.INFO, "response: "+(new Double(result)).toString());
 		return (new Double(result)).toString();
@@ -70,7 +72,14 @@ public class RestServerAPI {
 		double result = Integer.MIN_VALUE;
 
 		/* COMPLETE CODE */
+		gson = new Gson();
+		obj = new JsonObject();
 
+		result = 4 * rad + 3 * alt + 4 * Math.PI * rad * ang / 360;
+		((JsonObject)obj).addProperty("rad", rad);
+		((JsonObject)obj).addProperty("alt", alt);
+		((JsonObject)obj).addProperty("ang", ang);
+		((JsonObject)obj).addProperty("per", result);
 
 		LSimLogger.log(Level.INFO, "response: "+gson.toJson(obj));
 		return gson.toJson(obj);
@@ -97,6 +106,8 @@ public class RestServerAPI {
 		Volum result = null;		
 
 		/* COMPLETE CODE */
+		gson = new Gson();
+		result = new Volum(rad, alt, ang);
 		
 		LSimLogger.log(Level.INFO, "response: "+gson.toJson(result));
 		return gson.toJson(result);

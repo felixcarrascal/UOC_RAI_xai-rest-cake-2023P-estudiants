@@ -23,6 +23,7 @@ public class Volum implements Serializable{
 		this.ang = ang;
 		
 		/* COMPLETE CODE */
+		this.vol = PI * rad * rad * alt * ang / 360;
 	}
 	
 	@Override

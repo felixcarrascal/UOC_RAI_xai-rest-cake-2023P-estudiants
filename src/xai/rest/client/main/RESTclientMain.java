@@ -23,8 +23,8 @@ public class RESTclientMain {
 		float rad = 6.1f;
 		float alt = 2.3f;
 		float ang = 3.3f;
-		System.out.println("per: " + Utils.formataDosDecimals(rs.sup(IP_SERVIDOR, PORT_SERVIDOR, rad, alt, ang)));
-		System.out.println("sup: " + Utils.formataDosDecimals(rs.per(IP_SERVIDOR, PORT_SERVIDOR, rad, alt, ang)));
+		System.out.println("sup: " + Utils.formataDosDecimals(rs.sup(IP_SERVIDOR, PORT_SERVIDOR, rad, alt, ang)));
+		System.out.println("per: " + Utils.formataDosDecimals(rs.per(IP_SERVIDOR, PORT_SERVIDOR, rad, alt, ang)));
 		System.out.println("volume\n: " + rs.vol(IP_SERVIDOR, PORT_SERVIDOR, rad, alt, ang));	
 		
 	}
