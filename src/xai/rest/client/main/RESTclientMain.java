@@ -2,6 +2,7 @@ package xai.rest.client.main;
 
 import java.io.File;
 
+import edu.uoc.dpcs.lsim.logger.LoggerManager.Level;
 import lsim.library.api.LSimLogger;
 import xai.rest.client.RESTclient;
 import xai.rest.utils.Utils;
@@ -23,9 +24,13 @@ public class RESTclientMain {
 		float rad = 6.1f;
 		float alt = 2.3f;
 		float ang = 3.3f;
+		LSimLogger.log(Level.INFO, "sup: " + Utils.formataDosDecimals(rs.sup(IP_SERVIDOR, PORT_SERVIDOR, rad, alt, ang)));
 		System.out.println("sup: " + Utils.formataDosDecimals(rs.sup(IP_SERVIDOR, PORT_SERVIDOR, rad, alt, ang)));
+		LSimLogger.log(Level.INFO, "per: " + Utils.formataDosDecimals(rs.per(IP_SERVIDOR, PORT_SERVIDOR, rad, alt, ang)));
 		System.out.println("per: " + Utils.formataDosDecimals(rs.per(IP_SERVIDOR, PORT_SERVIDOR, rad, alt, ang)));
-		System.out.println("volume\n: " + rs.vol(IP_SERVIDOR, PORT_SERVIDOR, rad, alt, ang));	
+		LSimLogger.log(Level.INFO, "volume\n: " + rs.vol(IP_SERVIDOR, PORT_SERVIDOR, rad, alt, ang));
+		System.out.println("volume\n: " + rs.vol(IP_SERVIDOR, PORT_SERVIDOR, rad, alt, ang));
+		
 		
 	}
 }

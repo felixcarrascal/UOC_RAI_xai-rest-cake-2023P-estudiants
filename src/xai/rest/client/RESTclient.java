@@ -7,7 +7,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 
 import edu.uoc.dpcs.lsim.logger.LoggerManager.Level;
 import lsim.library.api.LSimLogger;
@@ -38,11 +37,11 @@ public class RESTclient {
 
 		/* COMPLETE CODE */
 		
+		LSimLogger.log(Level.INFO, "Llamada para obtener perímetro");
+		
 		String respuesta = restCall("http://"+address+":"+port+"/cake/per/"+value1+"/"+value2+"/"+value3, MediaType.APPLICATION_JSON);
-		
-		JsonObject json = new Gson().fromJson(respuesta, JsonObject.class);
-		
-		return Double.parseDouble(json.get("per").getAsString());
+
+		return new Gson().fromJson(respuesta, Double.class);
 	}
 
 	public Volum vol(String address, int port, float value1, float value2, float value3) {

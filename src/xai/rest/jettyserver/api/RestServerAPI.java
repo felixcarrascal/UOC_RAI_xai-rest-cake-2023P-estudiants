@@ -73,16 +73,13 @@ public class RestServerAPI {
 
 		/* COMPLETE CODE */
 		gson = new Gson();
-		obj = new JsonObject();
+		
 
 		result = 4 * rad + 3 * alt + 4 * Math.PI * rad * ang / 360;
-		((JsonObject)obj).addProperty("rad", rad);
-		((JsonObject)obj).addProperty("alt", alt);
-		((JsonObject)obj).addProperty("ang", ang);
-		((JsonObject)obj).addProperty("per", result);
+		
 
 		LSimLogger.log(Level.INFO, "response: "+gson.toJson(obj));
-		return gson.toJson(obj);
+		return gson.toJson(Double.valueOf(result));
 	}
 
 	/**
